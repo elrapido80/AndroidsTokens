@@ -1,0 +1,9 @@
+Building AndroidsToken
+
+See doc/readme-qt.rst for instructions on building AndroidsToken QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of AndroidsToken.
+
+See doc/build-*.txt for instructions on building AndroidsTokend,
+the intended-for-services, no-graphical-interface, reference
+implementation of AndroidsToken.
