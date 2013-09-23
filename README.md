@@ -1,7 +1,3 @@
-AndroidsTokens
-==============
-
-AndroidsTokens source code
 
 AndroidsToken 
 
