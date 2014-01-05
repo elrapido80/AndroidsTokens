@@ -1074,6 +1074,14 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
 
     int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
 
+
+    int64 nCheckTime=GetTime();
+    if(nCheckTime > 1389060000) //Human time (GMT): Tue, 07 Jan 2014 02:00:00 GMT
+    {
+        int nHeight = pindexPrev->nHeight+1;
+           if (nHeight >= 210845 & nActualSpacing < 0) nActualSpacing = 0;  //Sanity Check on nActualSpacing, corrects negative block values
+    }
+
     // ppcoin: target change every block
     // ppcoin: retarget with exponential moving toward target spacing
     CBigNum bnNew;
@@ -2904,14 +2912,14 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
 		
 		    
-    if(nTime < 1380974400)
+	if(nTime < 1389060000)
         {
-            if(pfrom->nVersion < 60000)
+            if(pfrom->nVersion < 70000)
                 badVersion = true;
         }
         else
         {
-            if(pfrom->nVersion < 70000)
+            if(pfrom->nVersion < 70001)
                 badVersion = true;
         }
         if(badVersion)
