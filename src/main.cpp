@@ -2912,7 +2912,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
 		
 		    
-	if(nTime < 1389060000)
+	if(nTime < 1379060000) //Kick bad peers NOW, not in 12 hours. 
         {
             if(pfrom->nVersion < 70000)
                 badVersion = true;
